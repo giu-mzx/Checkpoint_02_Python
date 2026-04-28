@@ -1,5 +1,22 @@
 codigo_estado = int(input("Digite o Código do Estado de Origem (1 - 5): "))
+
+match codigo_estado:
+  case 1:
+    imposto = (35/100)
+  case 2:
+    imposto = (25/100)
+  case 3:
+    imposto = (15/100)
+  case 4:
+    imposto = (5/100)
+  case 5:
+    imposto = 0
+  case _:
+    print("Código de Estado inválido.")
+    exit()
+
 peso_ton = float(input("Digite o peso da carga (em toneladas): "))
+
 codigo_carga = int(input("Digite o Código da Carga (10 - 40): "))
 
 peso_kg = peso_ton * 1000
@@ -15,25 +32,10 @@ elif 31 <= codigo_carga <= 40:
 
 else:
     print("Código de Carga inválido.")
-    preco_kg = 0
+    exit()
 
 
 preco_carga = peso_kg * preco_kg
-
-match codigo_estado:
-  case 1:
-    imposto = (35/100)
-  case 2:
-    imposto = (25/100)
-  case 3:
-    imposto = (15/100)
-  case 4:
-    imposto = (5/100)
-  case 5:
-    imposto = 0
-  case _:
-    print("Código de Estado inválido.")
-    imposto = 0
 
 imposto_valor = preco_carga * imposto
 valor_total = preco_carga + imposto_valor
